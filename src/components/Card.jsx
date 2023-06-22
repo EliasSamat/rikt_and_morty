@@ -1,8 +1,19 @@
-export default function Card(props, onClose) {
-   const {name , status, especie, genero, origin, image} = props ; 
+import React, { useState } from 'react';
+
+function Card({ id, name, status,  especie, genero, origin, image, onClose }) {
+  const [isVisible, setIsVisible] = useState(true);
+
+  const handleClose = () => {
+    setIsVisible(false);
+   // onClose();
+  };
+
+  if (!isVisible) {
+    return null; // Retorna null si la tarjeta no es visible
+  }
    return (
       <div>
-         <button onClick={onClose}>X</button>  
+         <button onClick={handleClose}>cerrar</button>  
          <h2>{name}</h2>
          <h2>{status}</h2>
          <h2>{especie}</h2>
@@ -12,3 +23,4 @@ export default function Card(props, onClose) {
       </div>
    );
 }
+export default Card ;  

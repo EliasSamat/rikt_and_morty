@@ -2,13 +2,13 @@
 import Card from './Card';
 
 export default function Cards( props) {
-const {characters, onClose} = props; 
+const {characters} = props; 
 console.log(characters);
  return ( 
     <div>
 
    {
-      characters?.map((character)=> {
+      characters.map((character)=> {
          return (
          <Card
          key={character.id}   
@@ -19,7 +19,7 @@ console.log(characters);
          gender={character.gender}
          origin={character.origin}
          image={character.image}
-         onClose={onClose}
+         
           />
          );
       })
